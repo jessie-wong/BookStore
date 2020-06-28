@@ -1,9 +1,9 @@
 # BookStore
 网上购书系统
 # 环境配置
-开发环境：IDEA
-使用框架：SSM
-数据库：Mysql8
+- 开发环境：IDEA
+- 使用框架：SSM
+- 数据库：Mysql8
 
 ## 功能/模块
 
