@@ -1,0 +1,52 @@
+
+#content #content-left #deletesearch form{
+    position:relative;
+    width:300px;
+    margin:20px auto 0 40px;
+}
+#content #content-left #deletesearch form input button{
+    border:none;
+    outline:none;
+}
+#content #content-left #deletesearch form input{
+	width:250px;
+	height:30px;
+    border-radius:5px 0 0 5px;
+    background:transparent;
+    top:0;
+    right:0;
+	border:1px solid #d3886a;
+}
+#deletesearch form button{
+    cursor:pointer;
+    position:absolute;
+	width:50px;
+	height:30px;
+    background:#d3886a;
+    top:0;
+    right:0;
+    border-radius:0 5px 5px 0;
+}
+#deletesearch form button::before{
+    content:"GO";
+    font-size:13px;
+    color:#F9F0DA;
+}
+.bookshow {
+	border-spacing: 20px;
+}
+.bookshow tr td{
+    font-size: 15px;
+}
+.deletebook form button{
+    cursor:pointer;
+    width:50px;
+    height:30px;
+    background: url(../images/register_bt.gif) no-repeat center;
+    border-radius:5px;
+}
+.deletebook form button::before{
+    content:"delete";
+    font-size:13px;
+    color:#F9F0DA;
+}

@@ -1,0 +1,45 @@
+#books
+{
+
+    display: block;
+    margin-right: 15px;
+}
+#books .title a
+{
+    color:red;
+    text-decoration: underline;
+}
+#books .book
+{
+    float:left;
+    margin-right: 25px;
+    margin-top:30px;
+}
+#books .book-box
+{
+    width: 132px;
+    height: 119px;
+    text-align: center;
+    vertical-align:middle;
+    background: url(../images/new_prod_box.gif) no-repeat center;
+    position: relative;
+}
+#books .title{
+    height: 15px;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+}
+#books .book .new img
+{
+    padding: 0;
+    width: 50px;
+    height: 50px;
+}
+
+#books .book img
+{
+    padding-top: 10px;
+    width: 60px;
+    height: 100px;
+}

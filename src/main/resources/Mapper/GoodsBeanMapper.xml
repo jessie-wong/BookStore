@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.vicp.zyl_me.dao.GoodsDao">
+    <resultMap id="GoodsMap" type="net.vicp.zyl_me.model.GoodsBean">
+        <id property="goodsid" column="goodsid" jdbcType="VARCHAR"/>
+        <result property="goodsname" column="goodsname" jdbcType="VARCHAR"/>
+        <result property="breifintroduction" column="breifintroduction" jdbcType="VARCHAR"/>
+        <result property="detailintroduction" column="detailintroduction" jdbcType="VARCHAR"/>
+        <result property="goodsprice" column="goodsprice" jdbcType="FLOAT"/>
+        <result property="photo" column="photo" jdbcType="VARCHAR"/>
+        <result property="category" column="category" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="getPromotionGoods" resultType="net.vicp.zyl_me.model.GoodsBean">
+        select goods.goodsid, goods.goodsname, goods.breifintroduction, goods.detailintroduction, goods.goodsprice, goods.photo, goods.category from promotiongoods,goods where goods.goodsid = promotiongoods.goodsid limit 2
+    </select>
+    <select id="getFavoriteGoodsBeans" resultType="net.vicp.zyl_me.model.GoodsBean" parameterType="int">
+        select * from goods limit 1,${count}
+    </select>
+    <select id="getGoodsByPage" resultType="net.vicp.zyl_me.model.GoodsBean" parameterType="int">
+        select * from goods limit ${page},${pagesize}
+    </select>
+    <select id="getGoodsCount" resultType="int">
+        select count(*) from goods;
+    </select>
+    <select id="getGoodsById" resultType="net.vicp.zyl_me.model.GoodsBean" parameterType="String">
+        select * from goods where goodsid = #{goodsid};
+    </select>
+    <select id="getGoodsByName" resultType="net.vicp.zyl_me.model.GoodsBean">
+        select * from goods where goodsname like CONCAT(CONCAT('%', #{goodsname}), '%') limit ${page},${pagesize};
+    </select>
+    <select id="getGoodsByCategory" resultType="net.vicp.zyl_me.model.GoodsBean">
+        select * from goods where category = #{category} limit ${page},${pagesize};
+    </select>
+    <select id="getGoodsCountByName" resultType="int" parameterType="String">
+        select count(*) from goods where goodsname like CONCAT(CONCAT('%', #{goodsname}), '%');
+    </select>
+    <select id="getGoodsCountByCategory" resultType="int" parameterType="String">
+        select count(*) from goods where category = #{category};
+    </select>
+    <insert id="addBook" parameterType="net.vicp.zyl_me.model.GoodsBean">
+        insert into
+        goods(
+          goodsid,
+          goodsname,
+          breifintroduction,
+          detailintroduction,
+          goodsprice,
+          photo,
+          category
+        )
+        values(
+          #{goods.goodsid},
+          #{goods.goodsname},
+          #{goods.breifintroduction},
+          #{goods.detailintroduction},
+          #{goods.goodsprice},
+          #{goods.photo},
+          #{goods.category}
+        )
+    </insert>
+    <delete id="deleteBook" parameterType="String">
+        delete from goods where goodsid in (#{goodsid})
+    </delete>
+</mapper>
