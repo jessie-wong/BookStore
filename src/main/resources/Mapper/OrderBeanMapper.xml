@@ -6,6 +6,7 @@
     <select id="getAllOrders" resultType="net.vicp.zyl_me.model.OrderBean">
         select orderinfo.orderid as orderid, goods.goodsname as goodsname, goods.goodsid as goodsid, orderinfo.count as count,goods.goodsprice as price, goods.photo as photo from goods,orderinfo where goods.goodsid = orderinfo.goodsid and orderinfo.username = #{param1}
     </select>
+
     <insert id="addOrder" parameterType="net.vicp.zyl_me.model.OrderBean">
         insert into orderinfo(
           goodsid,
@@ -18,10 +19,13 @@
           #{order.count}
         )
     </insert>
+
     <update id="updateOrderCount">
         update orderinfo set count = count + #{param2} where orderid = #{param1}
     </update>
+
     <delete id="deleteOrder">
         delete orderinfo where orderid = #{param1}
     </delete>
+
 </mapper>
